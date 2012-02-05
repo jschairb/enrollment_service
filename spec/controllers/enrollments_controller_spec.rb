@@ -26,7 +26,16 @@ describe EnrollmentsController do
   end
 
   describe "#notify" do
-    it "finds an enrollment"
-    it "returns an ok"
+    let(:payment_notification) { mock_model(PaymentNotification) }
+
+    it "creates a Payment Notification" do
+      PaymentNotification.should_receive(:create)
+      post :notify, :id => 1, :payment_status => "completed", :txn_id => 1
+    end
+
+    it "returns nothing" do
+      post :notify, { }
+      response.body.should be_blank
+    end
   end
 end

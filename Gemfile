@@ -29,6 +29,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'simplecov', :require => false
+end
+
 group :production do
   gem 'pg'
   gem 'thin'
