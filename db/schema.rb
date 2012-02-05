@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204202555) do
+ActiveRecord::Schema.define(:version => 20120205043043) do
 
   create_table "enrollments", :force => true do |t|
     t.string   "student_grade"
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(:version => 20120204202555) do
     t.string   "legal_agreement"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "status"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.integer  "enrollment_id"
+    t.text     "params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
