@@ -1,1 +1,7 @@
 <h1>Enrollments Service</h1>
+
+<%= form_for Enrollment.new, :url => "/" do |f| %>
+  <%= f.check_box :legal_agreement%>
+<% end%>
+
+

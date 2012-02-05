@@ -19,7 +19,10 @@ describe EnrollmentsController do
   end
 
   describe "#index" do
-    it "renders a template"
+    it "renders a template" do
+      get :index
+      response.should render_template("enrollments/index")
+    end
   end
 
   describe "#notify" do

@@ -24,7 +24,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'mysql2'
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end

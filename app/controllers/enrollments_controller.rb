@@ -12,6 +12,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def notify
+    Rails.logger.debug(params)
   end
 
   private
