@@ -1,4 +1,6 @@
 class EnrollmentsController < ApplicationController
+  protect_from_forgery :except => [:create, :notify]
+
   SUCCESS_URL = "http://www.antonian.org/enrollment/success.php"
   FAILURE_URL = "http://www.antonian.org/enrollment"
 
@@ -12,7 +14,11 @@ class EnrollmentsController < ApplicationController
   end
 
   def notify
-    Rails.logger.debug(params)
+    PaymentNotification.create(:enrollment_id => params[:id],
+                               :params => params,
+                               :status => params[:status],
+                               :transaction_id => params[:txn_id])
+    render :nothing => true
   end
 
   private
